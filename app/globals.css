@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 250 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 250 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 250 20% 10%;
+    --primary: 267 75% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 260 20% 96%;
+    --secondary-foreground: 250 20% 10%;
+    --muted: 260 20% 96%;
+    --muted-foreground: 250 10% 40%;
+    --accent: 267 75% 95%;
+    --accent-foreground: 267 75% 40%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 250 10% 90%;
+    --input: 250 10% 90%;
+    --ring: 267 75% 50%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 250 20% 8%;
+    --foreground: 250 10% 98%;
+    --card: 250 25% 10%;
+    --card-foreground: 250 10% 98%;
+    --popover: 250 25% 10%;
+    --popover-foreground: 250 10% 98%;
+    --primary: 267 75% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 250 20% 15%;
+    --secondary-foreground: 250 10% 98%;
+    --muted: 250 20% 15%;
+    --muted-foreground: 250 10% 70%;
+    --accent: 267 50% 20%;
+    --accent-foreground: 267 75% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 250 20% 18%;
+    --input: 250 20% 18%;
+    --ring: 267 75% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-poppins font-bold;
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-fade-in {
+    @apply opacity-0 animate-in fade-in duration-500;
+  }
+
+  .animate-slide-up {
+    @apply opacity-0 translate-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500;
+  }
+
+  .animate-slide-left {
+    @apply opacity-0 translate-x-4 animate-in fade-in slide-in-from-right-4 duration-500;
+  }
+
+  .animate-slide-right {
+    @apply opacity-0 -translate-x-4 animate-in fade-in slide-in-from-left-4 duration-500;
+  }
+
+  .animate-scale {
+    @apply opacity-0 scale-95 animate-in fade-in zoom-in-95 duration-500;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+}
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  @apply bg-gradient-to-r from-primary/80 to-primary;
+}
+
+.bg-gradient-card {
+  @apply bg-gradient-to-br from-background to-muted/50;
+}
+
+/* Glass effect */
+.glass-effect {
+  @apply bg-background/80 backdrop-blur-md border border-border/50;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full hover:bg-primary/70 transition-colors;
+}
+
+/* Dark mode enhancements */
+.dark .card-glow {
+  position: relative;
+}
+
+.dark .card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 0.75rem;
+  background: linear-gradient(to bottom right, rgba(var(--primary), 0.2), rgba(var(--primary), 0.05), transparent);
+  z-index: -10;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.dark .card-glow:hover::before {
+  opacity: 1;
+}
+
+.dark .text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-primary/80 animate-gradient-shift bg-[length:200%_auto];
+}
+
+.dark .bg-pattern {
+  background-image: radial-gradient(rgba(167, 139, 250, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .glow-effect {
+  box-shadow: 0 0 30px -5px rgba(167, 139, 250, 0.3);
+}
