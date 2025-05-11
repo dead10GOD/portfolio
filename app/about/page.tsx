@@ -67,9 +67,9 @@ export default function AboutPage() {
             <div>
               <h3 className="font-semibold text-lg mb-3">Dev Stack</h3>
               <ul className="space-y-3">
-                <motion.li className="transition-all hover:translate-x-1" whileHover={{ scale: 1.02 }}>
+                {/* <motion.li className="transition-all hover:translate-x-1" whileHover={{ scale: 1.02 }}>
                   React-Native
-                </motion.li>
+                </motion.li> */}
                 <motion.li className="transition-all hover:translate-x-1" whileHover={{ scale: 1.02 }}>
                   Python
                 </motion.li>
